@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Invoices</title>
+	<h2>Create a client</h2>
+
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/stylesheet1.css') }}">
+
+	<style type="text/css">
+		ul { 
+			list-style-type: none;
+		} 
+	</style>
+
+
+</head>
+<body>
+		<form method="get" action="/clients/confirm">
+			First Name: <input type="text" name="first"><br>
+			Last Name: <input type="text" name="last"><br>
+			Company: <input type="text" name="company"><br>
+			Email: <input type="text" name="email"><br>
+			Phone Number: <input type="text" name="phonenum"><br>
+			<button id="connectButton" type="submit">Create</button>
+
+		</form>
+
+
+		<form method="get" action="/clients">
+		<br><br>
+		<button id="connectButton" type="submit" value="Go Back To invoices"> Go Back To Clients Page</button>
+	</form>
+</body>
+</html>

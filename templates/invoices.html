@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Invoices</title>
+	<h2>A List of Your Invoices:</h2>
+
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/stylesheet1.css') }}">
+
+	<style type="text/css">
+		ul { 
+			list-style-type: none;
+		} 
+	</style>
+
+
+</head>
+<body>
+		<form method="GET", action="/invoices/pay"> 
+ 			<ul>
+	 			{% for i in range(lengthI) %}
+	 				<li> <b>Clients Name: </b> {{invoices[i].fname}} {{invoices[i].lname}} <b>Amount: </b>{{invoices[i].amount}} <b>State: </b>{{invoices[i].v3_status}} <b>Payment Status: </b>{{invoices[i].payment_status}} <b>Date Created: </b>{{invoices[i].create_date}} 
+	 				{% if (invoices[i].payment_status != 'paid'): %}
+	 					<button id="connectButton" name="id" type="submit" value="{{invoices[i].invoice_id}}">Pay</button></li>
+	 				{% endif %}
+		 		{% endfor %}
+
+			</ul>
+
+		</form>
+
+		<form method="get" action="/options">
+		<button type="submit" id="connectButton" value="Go Back To invoices"> Go Back To Home</button>
+		</form>
+
+</body>
+</html>

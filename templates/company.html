@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Clients</title>
+	<h2>Choose which company you wish to proceed under:</h2>
+
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/stylesheet1.css') }}">
+
+	<style type="text/css">
+		ul { 
+			list-style-type: none;
+		} 
+		
+
+		#cButton {  
+			margin-left: 5px;
+			font-size: 20px;
+		}
+	</style>
+
+</head>
+<body>
+ 	<form action='/options/' method="GET">
+		<ul>
+			{% for i in range(cLength) %}
+				<li><input id="connectButton" type="submit" name="cName" value="{{companies[i].get_name()}}" onclick="" id="cButton"></button></li>
+			{% endfor %}
+			
+		</ul>
+	</form>
+
+</body>
+</html>
+

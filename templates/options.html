@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<h2>What would you like to view</h2>
+
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/stylesheet1.css') }}">
+
+</head>
+<body>
+
+	<form method="get" action="/clients/">
+		<button id="connectButton" type="submit" name="data" value="clients">Show Clients</button>
+	</form>
+
+	<form method="get" action="/invoices/">
+		<button type="submit" id="connectButton" name="data" value="invoices">Show invoices</button>
+	</form>
+
+</body>
+</html>

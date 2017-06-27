@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome the Freshbooks API test</title>
+	<h2>Example application using the FreshBooks API</h2>
+
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/stylesheet1.css') }}">
+
+	<style type="text/css">
+		#connectButton {
+			margin-left: 10px; 
+			font-size: 15px;		 
+		}
+		p {
+			margin-left: 8px; 
+		}
+	</style>
+
+</head>
+<body>
+<form button="get" action="/auth">
+	<p>Click the button to connect to your Freshbooks account.</p>
+	<button type="submit" id="connectButton">Connect</button>
+</form>
+
+</body>
+</html>

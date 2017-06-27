@@ -1,0 +1,20 @@
+h2 {
+        background-color: lightblue; 
+        top: 0px;
+        padding: 0px; 
+        margin: 0px; 
+        height: 35px;
+        text-align: center;
+
+    }
+
+    head{
+        padding: 0px;
+        margin: 0px; 
+    }
+    body{
+        padding: 0;
+        margin: 0;
+    }
+
+    
