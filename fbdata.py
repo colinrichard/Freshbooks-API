@@ -138,9 +138,9 @@ class FbData(object):
 		#initializing invoice objects and adding to invoice_list
 		for x in range(invoice_length):
 			invoice_fname = str(jsonData['response']['result']['invoices'][x]['fname'])
+			invoice_pay_status = str(jsonData['response']['result']['invoices'][x]['payment_status'])
 			invoice_lname = str(jsonData['response']['result']['invoices'][x]['lname'])
 			invoice_status = str(jsonData['response']['result']['invoices'][x]['status'])
-			invoice_pay_status = str(jsonData['response']['result']['invoices'][x]['payment_status'])
 			v3_status = str(jsonData['response']['result']['invoices'][x]['v3_status'])
 			invoice_create_date = str(jsonData['response']['result']['invoices'][x]['create_date'])
 			invoice_amount = str(jsonData['response']['result']['invoices'][x]['outstanding']['amount'])
@@ -160,7 +160,7 @@ class FbData(object):
 		#posting data
 		print(time.strftime('%Y-%m-%d'))
 		res = requests.post(url, data=json.dumps(payload), headers=headers)
-		
+	
 	# creating a client			
 	def create_client(self, fname, lname, org):
 		#API URL for client creation
@@ -171,4 +171,5 @@ class FbData(object):
 		payload = {'client': { 'fname': str(fname), 'lname': str(lname), 'organization': str(org) } }
 		#posting data
 		res = requests.post(url, data=json.dumps(payload), headers=headers)
-		
+
+
