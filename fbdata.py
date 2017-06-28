@@ -151,19 +151,24 @@ class FbData(object):
 	# pays invocie with a given amount		
 	def pay_invoice(self, invoice_id, amount):
 
+		#Used to check for negative amounts
+		a = int(amount)
+		if a < 0:
+			a = 0	
 		#API URL for making a payment		
 		url = "https://api.freshbooks.com/accounting/account/" + str(self.current_company) + "/payments/payments"
 		#API header
 		headers = {'Authorization': 'Bearer ' + str(self.bearer), 'Api-Version': 'alpha', 'Content-Type': 'application/json'}
 		#data needed for API (invoice number & payment amount)
-		payload = { 'payment': {'invoiceid': invoice_id, 'amount': {'amount': str(amount)}, 'date': time.strftime('%Y-%m-%d'), 'type': "credit"} }
+		payload = { 'payment': {'invoiceid': invoice_id, 'amount': {'amount': str(a)}, 'date': time.strftime('%Y-%m-%d'), 'type': "credit"} }
 		#posting data
 		print(time.strftime('%Y-%m-%d'))
 		res = requests.post(url, data=json.dumps(payload), headers=headers)
 	
 	# creating a client			
 	def create_client(self, fname, lname, org):
-		#API URL for client creation
+		#API URL for client creation		
+
 		url = "https://api.freshbooks.com/accounting/account/" + str(self.current_company) + "/users/clients"
 		#API header
 		headers = {'Authorization': 'Bearer ' + str(self.bearer), 'Api-Version': 'alpha', 'Content-Type': 'application/json'}
@@ -172,4 +177,5 @@ class FbData(object):
 		#posting data
 		res = requests.post(url, data=json.dumps(payload), headers=headers)
 
+	
 

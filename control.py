@@ -67,12 +67,19 @@ def confirmClient():
 	fname = request.args.get('first')
 	lname = request.args.get('last')
 	org = request.args.get('company')
-	#creates new client
-	d.create_client(fname, lname, org)
-	#updates client list of their company
-	d.list_clients(d.current_company)
-	#confirmation HTML page
-	return render_template('confirmclient.html')
+	eligibility = False
+
+	if ((fname == "" or lname == "") and org == ""):
+		eligibility = False
+	else:
+		#creates new client
+		d.create_client(fname, lname, org)
+		#updates client list of their company
+		d.list_clients(d.current_company)
+		#confirmation HTML page
+		eligibility = True
+
+	return render_template('confirmclient.html', makeClient = eligibility)
 
 # user selects Invoices
 @app.route("/invoices/")
